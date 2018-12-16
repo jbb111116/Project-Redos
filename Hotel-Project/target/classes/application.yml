@@ -1,0 +1,22 @@
+server:
+  port: 8888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [beans, health, conditions, env, configprops, sessions, metrics, logfile, heapdump, loggers, shutdown]
+  endpoint:
+    shutdown:
+      enabled: true
+spring:
+  datasource:
+    platform: postgres
+    username: ${JDBC_LOGIN}
+    password: ${JDBC_PASSWORD}
+    url: ${PROJECT2_URL}
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: validate
+      dialect: org.hibernate.dialect.PostgreSQL95Dialect
